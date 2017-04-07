@@ -22,6 +22,7 @@ function beginTimer()
 
 function update()
 {
+	$("#minutes").text(mins);
 	$("#seconds").text(secs);
 	--secs;
 	if(mins===0 && secs<0)
@@ -29,11 +30,10 @@ function update()
 		stop();
 		console.log('Timer Finished');
 	}
-	else if(secs<=0 && mins>0)
+	else if(secs<0 && mins>0)
 	{
 		secs=59;
 		--mins;
-		$("#minutes").text(mins);
 	}
 }
 
