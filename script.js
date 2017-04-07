@@ -1,5 +1,5 @@
 //Some javascript will come here
-var mins, secs,countdown;
+var mins, secs,countdown,pause,resume;
 
 
 $(document).ready(function()
@@ -20,8 +20,25 @@ function beginTimer()
 	countdown= setInterval(update, 1000);
 }
 
+$("#pause").click(function()
+{
+	pause=true;
+	resume=false;
+})
+
+$("#resume").click(function()
+{		pause= false;
+		update();
+		countdown= setInterval(update, 1000);	
+})
+
 function update()
 {
+	if (pause) 
+	{
+		clearInterval(countdown);
+	}
+
 	$("#minutes").text(mins);
 	$("#seconds").text(secs);
 	--secs;
