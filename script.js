@@ -64,7 +64,8 @@ $("#pause").click(function()
 
 $("#resume").click(function()
 {	
-		$("#pause").attr("disabled", false);		
+		$("#pause").attr("disabled", false);
+		$("#resume").attr("disabled", true);		
 		countdown= setInterval(update, 1000);	
 })
 
