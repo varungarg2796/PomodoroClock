@@ -6,13 +6,36 @@ $(document).ready(function()
 {
 	init();
 	set();
+	$(".dis").attr("disabled", true);	
+
 })
 
 $("#start").on("click", beginTimer);
+$("#increment").on("click", increase);
+$("#decrement").on("click", decrease);
+function increase()
+{
+	mins++;
+	$("#minutes").text(mins);
+}
+
+function decrease()
+{
+	if(mins>1)
+	{
+		mins--;
+		$("#minutes").text(mins);
+	}
+	else
+	{
+		alert("Cannot be decreased further");
+	}
+}
 
 function beginTimer()
 {
-	init();
+	$("#start").attr("disabled", true);	
+	$("#pause").attr("disabled", false);	
 	$("#minutes").text(mins);
 	$("#seperator").text(":");
 	$("#seconds").text(secs);
@@ -22,22 +45,18 @@ function beginTimer()
 
 $("#pause").click(function()
 {
-	pause=true;
-	resume=false;
+	stop();
+	$("#resume").attr("disabled", false);	
 })
 
 $("#resume").click(function()
-{		pause= false;
+{	
 		update();
 		countdown= setInterval(update, 1000);	
 })
 
 function update()
 {
-	if (pause) 
-	{
-		clearInterval(countdown);
-	}
 
 	$("#minutes").text(mins);
 	$("#seconds").text(secs);
@@ -52,6 +71,7 @@ function update()
 		secs=59;
 		--mins;
 	}
+
 }
 
 function stop()
