@@ -13,6 +13,17 @@ $(document).ready(function()
 $("#start").on("click", beginTimer);
 $("#increment").on("click", increase);
 $("#decrement").on("click", decrease);
+$("#reset").on("click", reset);
+
+function reset()
+{
+	init();
+	set();
+	$(".dis").attr("disabled", true);	
+	$("#start").attr("disabled", false);	
+	clearInterval(countdown);
+}
+
 function increase()
 {
 	mins++;
@@ -34,6 +45,7 @@ function decrease()
 
 function beginTimer()
 {
+	--mins;
 	$("#start").attr("disabled", true);	
 	$("#pause").attr("disabled", false);	
 	$("#minutes").text(mins);
@@ -46,18 +58,18 @@ function beginTimer()
 $("#pause").click(function()
 {
 	stop();
-	$("#resume").attr("disabled", false);	
+	$("#resume").attr("disabled", false);
+	$("#pause").attr("disabled", true);		
 })
 
 $("#resume").click(function()
 {	
-		update();
+		$("#pause").attr("disabled", false);		
 		countdown= setInterval(update, 1000);	
 })
 
 function update()
 {
-
 	$("#minutes").text(mins);
 	$("#seconds").text(secs);
 	--secs;
@@ -88,4 +100,6 @@ function init ()
 function set()
 {
 	$("#minutes").text(mins);
+	$("#seconds").text("");
+	$("#seperator").text("");
 }
