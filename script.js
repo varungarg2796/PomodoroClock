@@ -2,6 +2,7 @@
 var mins, secs,countdown;
 
 var breakMins, breakSecs;
+$('#message').text("Ready to grind out some productive sessions?!");
 
 
 $(document).ready(function()
@@ -19,6 +20,7 @@ $("#reset").on("click", reset);
 
 function reset()
 {
+	$('#message').text("Alright then! Let us start again!");
 	init();
 	set();
 	$(".dis").attr("disabled", true);	
@@ -47,6 +49,7 @@ function decrease()
 
 function beginTimer()
 {
+	$('#message').text("There we go! Get cracking!");
 	--mins;
 	$("#start").attr("disabled", true);	
 	$("#pause").attr("disabled", false);	
@@ -59,6 +62,7 @@ function beginTimer()
 
 $("#pause").click(function()
 {
+	$('#message').text("Pause? Seriously? GO GO GO!");
 	stop();
 	$("#resume").attr("disabled", false);
 	$("#pause").attr("disabled", true);		
@@ -66,6 +70,7 @@ $("#pause").click(function()
 
 $("#resume").click(function()
 {	
+		$('#message').text("Oh yes! You are a champion!");
 		$("#pause").attr("disabled", false);
 		$("#resume").attr("disabled", true);		
 		countdown= setInterval(update, 1000);	
@@ -114,6 +119,7 @@ function set()
 
 function breaks()
 {
+	$('#message').text("Relax! Do whatever you like for 5 minutes");
 	breakMins=4;
 	breakSecs=59;
 	updateBreak();
@@ -139,7 +145,9 @@ function updateBreak()
 	else if(breakSecs==0 && breakMins==0)
 	{
 		stop();
-		breaks();
+		init();
+		set();
+		beginTimer();
 	}
 
 }
