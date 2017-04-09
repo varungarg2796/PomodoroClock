@@ -1,5 +1,7 @@
 //Some javascript will come here
-var mins, secs,countdown,pause,resume;
+var mins, secs,countdown;
+
+var breakMins, breakSecs;
 
 
 $(document).ready(function()
@@ -84,6 +86,11 @@ function update()
 		secs=59;
 		--mins;
 	}
+	else if(secs==0 && mins==0)
+	{
+		stop();
+		breaks();
+	}
 
 }
 
@@ -103,4 +110,36 @@ function set()
 	$("#minutes").text(mins);
 	$("#seconds").text("");
 	$("#seperator").text("");
+}
+
+function breaks()
+{
+	breakMins=4;
+	breakSecs=59;
+	updateBreak();
+	countdown= setInterval(updateBreak, 1000);	
+
+}
+
+function updateBreak()
+{
+	$("#minutes").text(breakMins);
+	$("#seconds").text(breakSecs);
+	--breakSecs;
+	if(breakMins===0 && breakSecs<0)
+	{
+		stop();
+		console.log('Timer Finished');
+	}
+	else if(breakSecs<0 && breakMins>0)
+	{
+		breakSecs=59;
+		--breakMins;
+	}
+	else if(breakSecs==0 && breakMins==0)
+	{
+		stop();
+		breaks();
+	}
+
 }
