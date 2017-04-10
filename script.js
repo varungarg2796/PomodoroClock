@@ -49,7 +49,7 @@ function decrease()
 
 function beginTimer()
 {
-	$('#message').text("Here we go! Get cracking!");
+	$('#message').text("There we go!!");
 	--mins;
 	$("#start").attr("disabled", true);	
 	$("#pause").attr("disabled", false);	
