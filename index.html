@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!--BCSS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!--Jquery-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--BootstrapJS-->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container-fluid text-center">
+	<h1> Pomodoro Clock</h1>
+	<br>
+	<div class="timer">
+		<button id="increment"> +</button>
+		<span id="minutes"></span>
+		<span id="seperator"></span>
+		<span id="seconds"></span>
+		<button id="decrement"> - </button>
+	</div>
+	<button class="btn btn-primary" id="start"><span class="glyphicon glyphicon-eject"></span>Start</button>
+	<button class="btn btn-default dis" id="pause"><span class="glyphicon glyphicon-pause"></span>Pause</button>
+	<button class="btn btn-success dis" id="resume"><span class="glyphicon glyphicon-play"></span>Resume</button>
+	<button class="btn btn-info" id="reset"><span class="glyphicon glyphicon-stop"></span>Reset</button>
+	<div id="message"></div>
+
+</div>
+
+
+<div class="text-center">
+  <div class="watch">
+    <div class="top_band"></div>
+    <div class="watch_face">
+      <div class="watch_display"></div>
+      <img class="screen_image">
+      <div class="watch_button"></div>
+    </div>
+    <div class="bottom_band"></div>
+  </div>
